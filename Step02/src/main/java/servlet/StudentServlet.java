@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import vo.StudentVO;
+
 import java.io.IOException;
 
 /**
@@ -33,15 +35,27 @@ public class StudentServlet extends HttpServlet {
 		
 		System.out.println(studentNo + " " + studentName 
 				+ " " + majorName + " " + studentScore);
+		StudentVO vo = new StudentVO(studentNo, studentName, 
+					majorName, Double.parseDouble(studentScore));
 		
+		request.setAttribute("vo", vo);
+		
+		//student_result.jsp로 이동해서 vo에 있는 내용을 전부 출력		
+		request.getRequestDispatcher("student_result.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		//한글이 깨지는 현상이 발생하면
+		request.setCharacterEncoding("utf-8");
 		doGet(request, response);
 	}
 
 }
+
+
+
+
+
