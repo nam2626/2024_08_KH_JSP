@@ -60,6 +60,17 @@
 			<li>${student.toString() },${status.count }</li>
 		</c:forEach>
 	</ul>
+	<!--
+			상태변수
+				current : 현재 아이템 값
+				index : 인덱스 값 - 0부터 시작
+				count : 1부터 순서값 시작
+				first : 해당 순서가 첫번째인지 확인
+				last : 해당 순서가 마지막인지 확인
+				begin : 시작값
+				end : 마지막값
+				step : 증가값
+	-->
 </body>
 </html>
 
