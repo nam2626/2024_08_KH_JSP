@@ -16,6 +16,7 @@ public class StudentVO {
 	}
 
 	public String getStudentNo() {
+		System.out.println("학번 정보 리턴");
 		return studentNo;
 	}
 

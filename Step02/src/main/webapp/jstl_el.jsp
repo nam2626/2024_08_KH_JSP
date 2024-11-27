@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +16,18 @@
 	</p>
 	<p>request 영역에 저장된 내용은 requestScope를 사용해서 뽑음</p>
 	<p>나이 : ${requestScope.age }</p>
+	<p>request 영역에 저장된 StudentVO 객체를 뽑음</p>
+	<!-- 실제로는 필드로 직접 접근이 아니라 get메서드를 호출한것  -->
+	<p>${requestScope.vo.studentNo } / ${requestScope.vo.studentName } 
+			/ ${requestScope.vo.majorName } / ${requestScope.vo.getStudentScore() }</p>
+	
+	<!-- if문, 조건식, 단 else, else if가 없음 -->
+	<c:if test="${requestScope.age < 20 }">
+		<p>미성년자 입니다.</p>	
+	</c:if>
+	<c:if test="${requestScope.age >= 20 }">
+		<p>성인 입니다.</p>	
+	</c:if>
 </body>
 </html>
 
