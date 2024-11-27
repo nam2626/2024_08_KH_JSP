@@ -40,6 +40,26 @@
 			<p>40대 이상이거나 미성년자 입니다.</p>
 		</c:otherwise>
 	</c:choose>
+	<!-- 반복문  -->
+	<h2>반복문</h2>
+	<ul>
+		<!-- var : 반복문 제어변수, begin : 시작값, end : 마지막 값, step : 증감값  -->
+		<c:forEach var="i" begin="1" end="10" step="1">
+			<li>${i } 번째 반복</li>
+		</c:forEach>
+	</ul>
+	<hr>
+	<ul>
+		<c:forEach var="i" begin="1" end="10" step="1" varStatus="status">
+			<li>${i}, ${status.current }, ${status.begin }, ${status.end }</li>
+		</c:forEach>
+	</ul>
+	<hr>
+	<ul>
+		<c:forEach var="student" items="${requestScope.list }" varStatus="status">
+			<li>${student.toString() },${status.count }</li>
+		</c:forEach>
+	</ul>
 </body>
 </html>
 
