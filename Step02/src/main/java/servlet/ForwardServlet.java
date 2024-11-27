@@ -33,6 +33,9 @@ public class ForwardServlet extends HttpServlet {
 		String result = name + " / " + age;
 		System.out.println(result);
 		
+		//데이터 셋팅
+		request.setAttribute("msg", result);		
+		
 		//페이지 이동 - forward 방식
 		//	사용자의 요청사항을 그대로 가지고 감
 		//	최초에 호출했던 URL이 주소창에 남아있음

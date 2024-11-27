@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="person.do" method="get">
+	<form action="forward.do" method="get">
 		이름 : <input type="text" name="name"><br>
 		나이 : <input type="number" name="age"><br>
 		<button>전송</button>

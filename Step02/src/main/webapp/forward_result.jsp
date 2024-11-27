@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h2>Person Result 페이지</h2>
-	
+	<p><%=request.getAttribute("msg") %></p>
 </body>
 </html>
