@@ -37,6 +37,7 @@ public class SessionServlet extends HttpServlet {
 //		session.setMaxInactiveInterval(1800);
 		
 		//페이지 이동 session_result.jsp
+		response.sendRedirect("session_result.jsp");
 	}
 
 	/**
