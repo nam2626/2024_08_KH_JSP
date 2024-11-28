@@ -16,9 +16,9 @@ public class BoardMemberDAO {
 	private BoardMemberDAO() {
 		try {
 			ods = new OracleDataSource();
-			ods.setURL("jdbc:oracle:thin:@192.168.20.123/xe");
-			ods.setUser("C##SCOTT");
-			ods.setPassword("TIGER");
+			ods.setURL("jdbc:oracle:thin:@nam3324.synology.me:32800/xe");
+			ods.setUser("c##quest");
+			ods.setPassword("tiger");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

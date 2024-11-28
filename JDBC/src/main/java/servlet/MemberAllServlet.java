@@ -14,7 +14,7 @@ import dto.BoardMemberDTO;
 /**
  * Servlet implementation class MemberAllServlet
  */
-@WebServlet("/MemberAllServlet")
+@WebServlet("/all.do")
 public class MemberAllServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
