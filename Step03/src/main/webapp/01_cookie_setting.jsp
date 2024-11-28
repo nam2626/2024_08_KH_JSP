@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/cookie.do">
+	<form action="cookie.do">
 		<input type="text" name="text">
 		<button>전송</button>
 	</form>
