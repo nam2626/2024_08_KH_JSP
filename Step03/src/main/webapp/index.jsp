@@ -37,17 +37,8 @@
 </style>
 </head>
 <body>
+	<jsp:include page="./template/header.jsp"></jsp:include>
 	
-	<!-- 메뉴바 작성, 메뉴 항목 5개짜리로 작성, CSS도 작성  -->
-	<nav>
-		<ul>
-			<li><a href="">메뉴1</a></li>
-			<li><a href="">메뉴2</a></li>
-			<li><a href="">메뉴3</a></li>
-			<li><a href="">메뉴4</a></li>
-			<li><a href="">메뉴5</a></li>
-		</ul>
-	</nav>
 	<main>
 		<h2>메인 콘텐츠 영역</h2>
 	</main>
