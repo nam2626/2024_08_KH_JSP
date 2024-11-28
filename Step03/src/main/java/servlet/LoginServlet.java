@@ -37,9 +37,15 @@ public class LoginServlet extends HttpServlet {
 		if(id.equals("admin") && passwd.equals("123456")) {
 			path = "login_result.jsp";
 			session.setAttribute("msg", "로그인에 성공하셨습니다.");
+			//페이지 이동
+			response.sendRedirect(path);
+		}else {
+			response.setContentType("text/html;charset=utf-8");
+			response.getWriter().println("<script>"
+					+ "alert('아이디와 비밀번호 확인하세요');"
+					+ "location.href='./03_login.jsp';"
+					+ "</script>");
 		}
-		//페이지 이동
-		response.sendRedirect(path);
 		
 	}
 
