@@ -9,5 +9,6 @@
 <body>
 	<h2>세션 값 조회</h2>
 	<p>세션에 저장된 내용 : ${sessionScope.msg }</p>
+	<p><a href="./invalidate.do">세션 무력화</a></p>
 </body>
 </html>
