@@ -5,7 +5,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import mapper.MajorMapper;
+
 import java.io.IOException;
+import java.util.List;
+
+import config.DBManager;
+import dto.MajorDTO;
 
 /**
  * Servlet implementation class SelectAllMajorServlet
@@ -26,8 +32,14 @@ public class SelectAllMajorServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		MajorMapper mapper = DBManager.getInstance()
+				.getSession().getMapper(MajorMapper.class);
+		//1. 전체 학과정보 읽어옴
+		List<MajorDTO> list = mapper.selectAllMajor();
+		//2. request 영역에 저장
+		request.setAttribute("majorList", list);
+		//3. 페이지 이동
+		request.getRequestDispatcher("./major_list.jsp").forward(request, response);
 	}
 
 	/**
