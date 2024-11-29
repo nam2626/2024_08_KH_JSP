@@ -9,7 +9,7 @@
 		<result column="major_name" property="majorName"/>
 	</resultMap>
 
-  <select id="selectAllMajor" resultType="dto.MajorDTO">
+  <select id="selectAllMajor" resultMap="major">
   	select * from major
   </select>
 </mapper>
