@@ -7,7 +7,7 @@
   	select * from board_member
   </select>
   <insert id="insertMember" parameterType="dto.BoardMemberDTO">
-  	insert into board_member(id,password,name,nickname)
+  	insert into board_member(id,password,username,nickname)
   	values(#{id}, standard_hash(#{password},'SHA512'), #{userName}, #{nickName})   	
   </insert>
 </mapper>
