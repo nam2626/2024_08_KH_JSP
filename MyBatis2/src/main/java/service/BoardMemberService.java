@@ -24,6 +24,10 @@ public class BoardMemberService {
 		return mapper.selectNameMember(name);
 	}
 
+	public int deleteMember(String id) {
+		return mapper.deleteMember(id);
+	}
+
 	
 	
 }

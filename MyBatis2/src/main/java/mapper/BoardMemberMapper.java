@@ -9,5 +9,6 @@ public interface BoardMemberMapper {
 	List<BoardMemberDTO> selectAllMember();
 	int insertMember(BoardMemberDTO dto);
 	List<BoardMemberDTO> selectNameMember(String name);
+	int deleteMember(String id);
 
 }

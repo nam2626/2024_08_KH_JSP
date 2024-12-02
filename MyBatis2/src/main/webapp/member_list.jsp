@@ -23,8 +23,10 @@
 				<tr>
 					<td>${member.id }</td>
 					<td>${member.password }</td>
-					<td>${member.nickName }</td>
 					<td>${member.userName }</td>
+					<td>${member.nickName }</td>
+					<td><a href="./deleteMember.do?id=${member.id}">삭제</a></td>
+					
 				</tr>
 			</c:forEach>		
 		</tbody>
