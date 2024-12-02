@@ -39,8 +39,8 @@ public class MemberInsertServlet extends HttpServlet {
 				.getSession().getMapper(BoardMemberMapper.class);
 		
 		//데이터 등록
-		mapper.insertMember(dto);
-		
+		int count = mapper.insertMember(dto);
+		System.out.println("데이터 등록 결과 : " + count);
 		//전체 사용자 조회 페이지로 이동
 		response.sendRedirect("all.do");
 	}
