@@ -10,4 +10,7 @@
   	insert into board_member(id,password,username,nickname)
   	values(#{id}, standard_hash(#{password},'SHA512'), #{userName}, #{nickName})   	
   </insert>
+  <select id="selectNameMember" parameterType="string" resultType="dto.BoardMemberDTO">
+  	select * from board_member where username like '%' || #{value} || '%'
+  </select>
 </mapper>
