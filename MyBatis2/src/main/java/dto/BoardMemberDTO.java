@@ -8,6 +8,15 @@ public class BoardMemberDTO {
 
 	public BoardMemberDTO() {	}
 
+	public BoardMemberDTO(String id, String password, String userName, String nickName) {
+		this.id = id;
+		this.password = password;
+		this.userName = userName;
+		this.nickName = nickName;
+	}
+
+
+
 	public String getId() {
 		return id;
 	}
