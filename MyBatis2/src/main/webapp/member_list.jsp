@@ -16,6 +16,7 @@
 				<th>비밀번호</th>
 				<th>이름</th>
 				<th>닉네임</th>
+				<th>비고</th>
 			</tr>
 		</thead>
 		<tbody>
