@@ -1,21 +1,29 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Scanner;
 
 public class NaverSearchMain {
 
 	public static void main(String[] args) {
-
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("검색어 입력 : ");
+		System.out.println(naverNewsSearch(sc.nextLine()));
+		
 	}
 	
 	public static String naverNewsSearch(String text) {
 		String clientId = "애플리케이션 클라이언트 아이디"; 
         String clientSecret = "애플리케이션 클라이언트 시크릿";
 
-		String result = "";
+		StringBuilder sb = new StringBuilder();
+
 		try {
 			//0. 보낼 데이터를 인코딩 - UTF-8
 			text = URLEncoder.encode(text, "UTF-8");
@@ -28,7 +36,25 @@ public class NaverSearchMain {
 			//	헤더 설정 -> 인증 정보 (클라이언트 키캆, 시크릿 값, API 키값)
 			//	Method 설정
 			conn.setRequestMethod("GET");
+			conn.addRequestProperty("X-Naver-Client-Id", clientId);
+			conn.addRequestProperty("X-Naver-Client-Secret", clientSecret);
 			
+			//4. 응답 결과 - 200 정상, 404 경로 X, 401 인증 X, 403 접속 권한 X
+			int responseCode = conn.getResponseCode();
+			
+			if(responseCode != 200) {
+				throw new Exception("호출 오류");
+			}
+			
+			//5. 데이터 읽기 --> 문자열로 받음(json, xml)
+			try(BufferedReader br 
+					= new BufferedReader(
+							new InputStreamReader(conn.getInputStream()))){
+				String str = "";
+				
+				while((str = br.readLine()) != null)
+					sb.append(str);
+			}
 			
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
@@ -36,8 +62,10 @@ public class NaverSearchMain {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		return result;
+		return sb.toString();
 	}
 }
 
