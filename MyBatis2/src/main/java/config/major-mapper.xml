@@ -42,6 +42,9 @@
   		</otherwise>
   	</choose>
   </select>
+  <select id="searchMajor2" parameterType="map" resultMap="major">
+  	select * from major where ${type} like '%' || #{search} || '%'
+  </select>
    
    
 </mapper>

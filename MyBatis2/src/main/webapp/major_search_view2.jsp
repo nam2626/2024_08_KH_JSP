@@ -24,10 +24,10 @@
 
 </head>
 <body>
-	<form action="./searchMajor.do" method="get">
+	<form action="./searchMajor2.do" method="get">
 		<select name="type">
-			<option value="1">학과번호</option>
-			<option value="2">학과명</option>
+			<option value="major_no">학과번호</option>
+			<option value="major_name">학과명</option>
 		</select>		
 		<input type="text" name="search">
 		<button>검색</button>		
