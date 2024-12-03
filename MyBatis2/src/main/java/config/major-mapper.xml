@@ -13,6 +13,7 @@
   	select * from major
   </select>
   
+<!--   <select id="selectMajorList" parameterType="string[]" resultMap="major"> -->
   <select id="selectMajorList" resultMap="major">
   	select * from major where major_no in
 	<foreach collection="array" open="(" close=")" item="item" separator="," >
