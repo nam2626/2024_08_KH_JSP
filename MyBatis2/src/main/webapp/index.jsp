@@ -13,6 +13,7 @@
 		<li><a href="./allMajor.do">전체 학과 정보 조회</a></li>
 		<li><a href="./meber_name_search.jsp">회원 이름 검색</a></li>
 		<li><a href="./majorSelectList.do">특정 학과 조회</a></li>
+		<li><a href="./major_search_view.jsp">학과 검색</a></li>
 	</ul>
 </body>
 </html>
