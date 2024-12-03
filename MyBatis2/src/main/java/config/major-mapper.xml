@@ -20,7 +20,7 @@
 		#{item}
 	</foreach>  	
   </select>
-  
+  <!-- 
   <select id="searchMajor" parameterType="map" resultMap="major">
   	select * from major where 
   		<if test='type == "1"'>
@@ -30,7 +30,20 @@
   			major_name like '%' || #{search} || '%'
   		</if>
   </select>
-  
+   -->
+  <select id="searchMajor" parameterType="map" resultMap="major">
+  	select * from major 
+  	<choose>
+  		<when test='type == "1"'>
+  			where major_no = #{search}
+  		</when>
+  		<otherwise>
+  			where major_name like '%' || #{search} || '%'
+  		</otherwise>
+  	</choose>
+  </select>
+   
+   
 </mapper>
 
 
