@@ -24,11 +24,19 @@
     .btn_all:hover {
         background-color: #45a049;
     }
-    
+    .passwd{
+    	width:50%;
+    }
+    td:nth-child(2){
+    	text-overflow: ellipsis;
+    	white-space: nowrap;
+    	overflow: hidden;
+    }
     table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
+        table-layout: fixed;
     }
     
     th, td {
@@ -61,7 +69,19 @@
 				data => {
 					console.log(data);
 					//result_tbody에 서버에서 받은 내용을 출력
-					
+					const tbody = document.querySelector('.result_tbody');
+					tbody.innerHTML = '';//해당 영역 초기화
+					data.list.forEach(item => {
+						console.log(item);
+						//tr 태그 생성
+						const tr = document.createElement('tr');
+						tr.innerHTML = `<td>${item.id}</td>
+							<td>${item.password}</td>
+							<td>${item.userName}</td>
+							<td>${item.nickName}</td>`;
+							
+						tbody.appendChild(tr);
+					});
 				}		
 			)
 		});
@@ -75,7 +95,7 @@
 		<thead>
 			<tr>
 				<th>아이디</th>
-				<th>암호</th>
+				<th class='passwd'>암호</th>
 				<th>이름</th>
 				<th>닉네임</th>
 			</tr>
