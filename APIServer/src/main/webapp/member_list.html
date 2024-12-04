@@ -85,10 +85,20 @@
 				}		
 			)
 		});
+		const btn_search_name = document.querySelector('.btn_search_name');
+		btn_search_name.addEventListener('click',function(){
+			const txt_search = document.querySelector('.txt_search_name');
+			
+			alert(txt_search.value);
+			
+		});
+		
 	}
 </script>
 </head>
 <body>
+	<input type="text" class="txt_search_name">
+	<button class="btn_search_name">이름으로 회원 검색</button>
 	<button class="btn_all">전체 회원 정보 조회</button>
 	<hr>
 	<table>
