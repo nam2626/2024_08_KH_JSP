@@ -89,7 +89,34 @@
 		btn_search_name.addEventListener('click',function(){
 			const txt_search = document.querySelector('.txt_search_name');
 			
-			alert(txt_search.value);
+			//alert(txt_search.value);
+			//ajax로 호출 - ./searchNameMember.do, 전송방식 POST
+			const url = './searchNameMember.do';
+			
+			fetch(url,{
+				method : 'post',
+				body : {
+					'search' : txt_search.value
+				}
+			}).then(response => response.json()).then(
+					data => {
+						console.log(data);
+						//result_tbody에 서버에서 받은 내용을 출력
+						const tbody = document.querySelector('.result_tbody');
+						tbody.innerHTML = '';//해당 영역 초기화
+						data.list.forEach(item => {
+							console.log(item);
+							//tr 태그 생성
+							const tr = document.createElement('tr');
+							tr.innerHTML = `<td>${item.id}</td>
+								<td>${item.password}</td>
+								<td>${item.userName}</td>
+								<td>${item.nickName}</td>`;
+								
+							tbody.appendChild(tr);
+						});
+					}		
+				)
 			
 		});
 		
