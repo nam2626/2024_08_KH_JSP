@@ -60,15 +60,15 @@
     			 fetch(url).then(response => response.json())
     			 .then(result => {
     				const id_chk_result = document.querySelector('.id_chk_result');
-    				if(result.status == 1){
+    				console.log(result.status);
+    				if(result.status == 0){
     					id_chk_result.innerHTML = '사용가능한 아이디 입니다.'
-    					id_chk_result.classList.add('.true');
-    					id_chk_result.classList.remove('.false');
-    					
+    					id_chk_result.classList.add('true');
+    					id_chk_result.classList.remove('false');
     				} else{
     					id_chk_result.innerHTML = '중복된 아이디 입니다.'
-    					id_chk_result.classList.add('.false');
-    					id_chk_result.classList.remove('.true');
+    					id_chk_result.classList.add('false');
+    					id_chk_result.classList.remove('true');
     				}
     			 });
     		 }
