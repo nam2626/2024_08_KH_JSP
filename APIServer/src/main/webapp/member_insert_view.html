@@ -43,7 +43,37 @@
         .form-group button:hover {
             background-color: #218838;
         }
+        .true{
+        	color:blue;
+        	font-weight: bold;
+        }
+        .false{
+        	color:red;
+        	font-weight: bold;
+        }
     </style>
+    <script>
+    	window.onload = () => {
+    		 document.querySelector('.btn_chk_id').onclick = () => {
+    			 const id = document.querySelector('#userId').value;
+    			 const url = `./checkMultipleId.do?id=${id}`;
+    			 fetch(url).then(response => response.json())
+    			 .then(result => {
+    				const id_chk_result = document.querySelector('.id_chk_result');
+    				if(result.status == 1){
+    					id_chk_result.innerHTML = '사용가능한 아이디 입니다.'
+    					id_chk_result.classList.add('.true');
+    					id_chk_result.classList.remove('.false');
+    					
+    				} else{
+    					id_chk_result.innerHTML = '중복된 아이디 입니다.'
+    					id_chk_result.classList.add('.false');
+    					id_chk_result.classList.remove('.true');
+    				}
+    			 });
+    		 }
+    	}
+    </script>
 </head>
 <body>
     <div class="form-container">
