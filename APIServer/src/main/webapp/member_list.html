@@ -55,7 +55,15 @@
 	window.onload = () => {
 		const btn_all = document.querySelector('.btn_all');
 		btn_all.addEventListener('click',function(){
-			alert("전체 회원 정보 조회 버튼 클릭");
+			//alert("전체 회원 정보 조회 버튼 클릭");
+			const url = './allMember.do';
+			fetch(url).then(response => response.json()).then(
+				data => {
+					console.log(data);
+					//result_tbody에 서버에서 받은 내용을 출력
+					
+				}		
+			)
 		});
 	}
 </script>
