@@ -28,6 +28,10 @@ public class BoardMemberService {
 		return mapper.deleteMember(id);
 	}
 
+	public List<BoardMemberDTO> selectAllMember() {
+		return mapper.selectAllMember();
+	}
+
 	
 	
 }
