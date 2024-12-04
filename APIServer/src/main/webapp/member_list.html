@@ -95,9 +95,7 @@
 			
 			fetch(url,{
 				method : 'post',
-				body : {
-					'search' : txt_search.value
-				}
+				body : JSON.stringify({'search' : txt_search.value})
 			}).then(response => response.json()).then(
 					data => {
 						console.log(data);
