@@ -52,6 +52,8 @@ public class SelectAllMemberServlet extends HttpServlet {
 		json.put("date",dateString);
 		
 		System.out.println(json.toString());
+		
+		response.getWriter().println(json.toString());
 	}
 
 	/**
