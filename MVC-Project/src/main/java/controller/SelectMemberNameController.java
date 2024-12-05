@@ -49,7 +49,7 @@ public class SelectMemberNameController implements Controller {
 		// JSON으로 변환
 		json = new JSONObject();
 		// JSON에 데이터 추가
-		json.put("list", list);
+		json.put("list", list); 
 		json.put("count", count);
 		json.put("date", dateString);
 
