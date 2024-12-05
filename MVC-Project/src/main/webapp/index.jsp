@@ -12,6 +12,8 @@
 	<a href="memberUpdate.do">회원정보 수정</a>
 	<a href="memberDelete.do">회원정보 삭제</a>
 	<a href="login.do?id=admin&passwd=123456">로그인처리</a>
+	<hr>
+	<a href="./allMember.do">전체 회원정보 조회</a>
 </body>
 </html>
 
