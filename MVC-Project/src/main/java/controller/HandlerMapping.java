@@ -24,6 +24,9 @@ public class HandlerMapping {
 		case "allMember2":
 			controller = new SelectAllMember2Controller();
 			break;
+		case "searchNameMember":
+			controller = new SelectMemberNameController();
+			break;
 		}
 		
 		return controller;
