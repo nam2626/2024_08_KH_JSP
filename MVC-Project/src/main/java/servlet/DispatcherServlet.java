@@ -5,8 +5,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import view.ModelAndView;
+
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Iterator;
+
+import controller.Controller;
+import controller.HandlerMapping;
 
 /**
  * Servlet implementation class DispatcherServlet
@@ -35,9 +41,34 @@ public class DispatcherServlet extends HttpServlet {
 //		System.out.println(path[path.length-1]);
 //		System.out.println(path[path.length-1].substring(0,path[path.length-1].length() -3));
 //		System.out.println(path[path.length-1].replace(".do", ""));
+		
+		//요청한 command 추출
 		String[] path = request.getRequestURI().split("/");
 		String command = path[path.length-1].replace(".do", "");
-	
+		//Controller 생성
+		Controller controller = HandlerMapping.getInstance().createController(command);
+		//execute
+		ModelAndView view = null;
+		if(controller != null) {
+			view = controller.execute(request, response);
+		}
+		if(view != null) {
+			//데이터 request영역에 저장
+			Iterator<String> it = view.getModel().keySet().iterator();
+			while(it.hasNext()) {
+				String key = it.next();
+				request.setAttribute(key, view.getModel().get(key));
+			}
+			//페이지 이동처리
+			if(view.isRedirect())
+				response.sendRedirect(view.getPath());
+			else
+				request.getRequestDispatcher(view.getPath()).forward(request, response);
+			
+		}
+		
+		
+		
 	}
 
 	/**
