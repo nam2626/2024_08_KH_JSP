@@ -14,6 +14,7 @@
 	<a href="login.do?id=admin&passwd=123456">로그인처리</a>
 	<hr>
 	<a href="./allMember.do">전체 회원정보 조회</a>
+	<a href="./member_list.html">전체 회원정보 조회-ajax</a>
 </body>
 </html>
 

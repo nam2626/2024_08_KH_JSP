@@ -18,6 +18,12 @@ public class HandlerMapping {
 		case "allMember":
 			controller = new SelectAllMemberController();
 			break;
+		case "main":
+			controller = new MainController();
+			break;
+		case "allMember2":
+			controller = new SelectAllMember2Controller();
+			break;
 		}
 		
 		return controller;

@@ -29,6 +29,7 @@
 			</c:forEach>		
 		</tbody>
 	</table>
+	<a href="./main.do">메인 페이지로 이동</a>
 </body>
 </html>
 
