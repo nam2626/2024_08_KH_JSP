@@ -19,6 +19,10 @@
   <select id="selectIdMember" parameterType="string" resultType="int">
   	select count(*) as member_count from board_member where id like #{id}
   </select>
+  <select id="findMemberByIdAndPassword" parameterType="map" resultType="dto.BoardMemberDTO">
+  	select * from board_member
+  	where id like #{id} and password like = STANDARD_HASH(#{password},'SHA512')
+  </select>
 </mapper>
 
 

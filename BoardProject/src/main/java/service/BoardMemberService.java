@@ -1,6 +1,8 @@
 package service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import config.DBManager;
 import dto.BoardMemberDTO;
@@ -34,6 +36,18 @@ public class BoardMemberService {
 
 	public int selectIdMember(String id) {
 		return mapper.selectIdMember(id);
+	}
+
+	public BoardMemberDTO login(String id, String password) {
+		try {
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("id", id);
+			map.put("password", password);
+			return mapper.findMemberByIdAndPassword(map);
+		}catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	

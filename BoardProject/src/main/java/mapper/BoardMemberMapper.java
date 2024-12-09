@@ -1,6 +1,7 @@
 package mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import dto.BoardMemberDTO;
 
@@ -11,5 +12,6 @@ public interface BoardMemberMapper {
 	List<BoardMemberDTO> selectNameMember(String name);
 	int deleteMember(String id);
 	int selectIdMember(String id);
+	BoardMemberDTO findMemberByIdAndPassword(Map<String, String> map);
 
 }
