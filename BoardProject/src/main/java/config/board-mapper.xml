@@ -17,7 +17,10 @@
 	<select id="getBoardList" resultMap="board">
 		select * from board_view
 	</select>
-	
+	<insert id="insertBoard" parameterType="dto.BoardDTO">
+		insert into board(bno, title, content, id)
+		values(seq_board_bno.nextval, #{title},#{content},#{id})
+	</insert>
  
 </mapper>
 
