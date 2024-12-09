@@ -17,9 +17,10 @@
    			});		
     		
     		document.querySelector('form').onsubmit = (e) => {
-    			e.preventDefault();
+    			//e.preventDefault();
     			console.log(editor.getHTML());
     			console.log(editor.getMarkdown());
+    			document.querySelector('input[name=content]').value = editor.getHTML(); 
     		}
     	}
     </script>
@@ -35,6 +36,7 @@
             <div class="form-group">
                 <label for="content">내용</label>
                 <div id="content"></div>
+                <input type="hidden" name="content">
             </div>
             <div class="form-actions">
                 <button type="submit" class="btn submit-btn">등록</button>
