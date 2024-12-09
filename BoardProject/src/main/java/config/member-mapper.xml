@@ -21,7 +21,7 @@
   </select>
   <select id="findMemberByIdAndPassword" parameterType="map" resultType="dto.BoardMemberDTO">
   	select * from board_member
-  	where id like #{id} and password like = STANDARD_HASH(#{password},'SHA512')
+  	where id like #{id} and password like STANDARD_HASH(#{password},'SHA512')
   </select>
 </mapper>
 
