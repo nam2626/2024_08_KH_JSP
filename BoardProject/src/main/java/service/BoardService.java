@@ -2,14 +2,16 @@ package service;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+
+import config.DBManager;
 import dto.BoardDTO;
+import mapper.BoardMapper;
 
 public class BoardService {
 	private static BoardService instance = new BoardService();
 
-	private BoardService() {
-
-	}
+	private BoardService() {	}
 
 	public static BoardService getInstance() {
 		if(instance == null)
@@ -18,8 +20,10 @@ public class BoardService {
 	}
 
 	public List<BoardDTO> getBoardList() {
-		
-		return null;
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.getBoardList();
+		}
 	}
 
 	
