@@ -24,6 +24,9 @@
  	<select id="selectBoard" resultMap="board">
  		select * from board_view where bno = #{bno}
  	</select>
+ 	<update id="updateBoardCount">
+ 		update board set bcount = bcount + 1 where bno = #{bno} 
+ 	</update>
 </mapper>
 
 

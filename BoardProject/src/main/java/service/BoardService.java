@@ -40,6 +40,13 @@ public class BoardService {
 		}
 	}
 
+	public int updateBoardCount(int bno) {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.updateBoardCount(bno);
+		}
+	}
+
 	
 	
 	

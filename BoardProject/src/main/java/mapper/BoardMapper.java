@@ -10,5 +10,6 @@ public interface BoardMapper {
 	//게시글 등록
 	int insertBoard(BoardDTO dto);
 	BoardDTO selectBoard(int bno);
+	int updateBoardCount(int bno);
 
 }
