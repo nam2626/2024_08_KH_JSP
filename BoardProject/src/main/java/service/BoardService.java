@@ -76,6 +76,13 @@ public class BoardService {
 		}
 	}
 
+	public int updateBoard(BoardDTO dto) {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.updateBoard(dto);
+		} 
+	}
+
 	
 	
 	

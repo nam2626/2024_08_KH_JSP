@@ -16,6 +16,7 @@ public interface BoardMapper {
 	List<BoardCommentDTO> getCommentList(int bno);
 	int deleteBoard(int bno);
 	int deleteBoardComment(int cno);
+	int updateBoard(BoardDTO dto);
 
 }
 
