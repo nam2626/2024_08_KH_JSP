@@ -2,14 +2,11 @@ package controller;
 
 import java.io.IOException;
 
-import com.azul.tooling.in.Model;
-
 import dto.BoardDTO;
 import dto.BoardMemberDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import service.BoardService;
 import view.ModelAndView;
 

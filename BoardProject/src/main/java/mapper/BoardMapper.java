@@ -9,5 +9,6 @@ public interface BoardMapper {
 	List<BoardDTO> getBoardList();
 	//게시글 등록
 	int insertBoard(BoardDTO dto);
+	BoardDTO selectBoard(int bno);
 
 }

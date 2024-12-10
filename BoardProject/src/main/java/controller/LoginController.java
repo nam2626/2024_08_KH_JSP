@@ -17,6 +17,7 @@ public class LoginController implements Controller {
 		//아이디, 비밀번호 받음
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
+		System.out.println(id +" " + password);
 		
 		//서비스로 아이디 비밀번호 보냄 - 결과로 BoardMemberDTO 받음
 		BoardMemberDTO dto = BoardMemberService.getInstance().login(id,password);

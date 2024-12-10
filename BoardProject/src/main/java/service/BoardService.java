@@ -33,6 +33,13 @@ public class BoardService {
 		}
 	}
 
+	public BoardDTO selectBoard(int bno) {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.selectBoard(bno);
+		}
+	}
+
 	
 	
 	

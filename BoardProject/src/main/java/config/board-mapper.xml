@@ -21,7 +21,9 @@
 		insert into board(bno, title, content, id)
 		values(seq_board_bno.nextval, #{title},#{content},#{id})
 	</insert>
- 
+ 	<select id="selectBoard" resultMap="board">
+ 		select * from board_view where bno = #{bno}
+ 	</select>
 </mapper>
 
 

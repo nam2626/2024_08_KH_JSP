@@ -33,10 +33,10 @@ public class DispatcherServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		//요청한 command 추출
 		String[] path = request.getRequestURI().split("/");
 		String command = path[path.length-1].replace(".do", "");
+		System.out.println(command);
 		//Controller 생성
 		Controller controller = HandlerMapping.getInstance().createController(command);
 		//execute
