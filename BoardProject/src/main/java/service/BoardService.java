@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import config.DBManager;
+import dto.BoardCommentDTO;
 import dto.BoardDTO;
 import mapper.BoardMapper;
 
@@ -44,6 +45,13 @@ public class BoardService {
 		try(SqlSession session = DBManager.getInstance().getSession()){
 			BoardMapper mapper = session.getMapper(BoardMapper.class);
 			return mapper.updateBoardCount(bno);
+		}
+	}
+
+	public int insertBoardComment(BoardCommentDTO dto) {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.insertBoardComment(dto);
 		}
 	}
 

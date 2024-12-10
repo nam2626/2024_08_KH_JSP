@@ -27,6 +27,10 @@
  	<update id="updateBoardCount">
  		update board set bcount = bcount + 1 where bno = #{bno} 
  	</update>
+ 	<insert id="insertBoardComment" parameterType="dto.BoardCommentDTO">
+ 		insert into board_comment(cno, bno, content, id)
+ 		values(SEQ_BOARD_COMMENT_CNO.nextval, #{bno}, #{content}, #{id})
+ 	</insert>
 </mapper>
 
 
