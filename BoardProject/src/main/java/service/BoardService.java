@@ -55,6 +55,13 @@ public class BoardService {
 		}
 	}
 
+	public List<BoardCommentDTO> getCommentList(int bno) {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.getCommentList(bno);
+		}
+	}
+
 	
 	
 	

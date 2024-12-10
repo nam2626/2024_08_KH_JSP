@@ -76,10 +76,42 @@
         </table>
         <div class="actions">
             <a href="./boardMain.do" class="btn">목록으로</a>
-           
+           	
         </div>
         <hr>
-	
+		<!-- 
+			댓글 내용을 출력, 댓글 번호(hidden), 작성일, 좋아요, 싫어요, 작성자, 댓글 내용 
+			댓글 삭제 버튼 -> 작성자와 로그인한 사람이 일치할때
+			
+			작성자, 작성일, 좋아요, 싫어요
+			댓글 내용
+			삭제버튼
+		 -->
+		 <c:forEach var="comment" items="${commentList }">
+		 	<div class="comment">
+		 		<p>
+		 			<input type="hidden" name="cno" value="${comment.cno }">
+		 			<span>${comment.id }</span>
+		 			<span>작성일 ${comment.cdate}</span>
+		 			<span><a href="" class="btn_comment_like">
+		 				좋아요 : <span>${comment.clike }</span>
+		 				</a></span>
+		 			<span><a href="" class="btn_comment_hate">싫어요 : <span>${comment.chate}</span></a></span>
+		 		</p>
+		 		<p>${comment.content }</p>
+		 		<c:if test="">
+		 			<a href="./boardCommentDelete.do?cno=${comment.cno} }">댓글 삭제</a>
+		 		</c:if>
+		 	</div>
+			<hr>		 
+		 </c:forEach>
     </div>
 </body>
 </html>
+
+
+
+
+
+
+

@@ -31,6 +31,9 @@
  		insert into board_comment(cno, bno, content, id)
  		values(SEQ_BOARD_COMMENT_CNO.nextval, #{bno}, #{content}, #{id})
  	</insert>
+ 	<select id="getCommentList" resultType="dto.BoardCommentDTO">
+ 		SELECT * FROM BOARD_COMMENT_VIEW WHERE BNO = #{bno}
+ 	</select>
 </mapper>
 
 
