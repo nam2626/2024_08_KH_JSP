@@ -34,6 +34,9 @@
  	<select id="getCommentList" resultType="dto.BoardCommentDTO">
  		SELECT * FROM BOARD_COMMENT_VIEW WHERE BNO = #{bno}
  	</select>
+ 	<delete id="deleteBoard">
+ 		delete from board where bno = #{bno}
+ 	</delete>
 </mapper>
 
 
