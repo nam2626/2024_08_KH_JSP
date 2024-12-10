@@ -99,8 +99,8 @@
 		 			<span><a href="" class="btn_comment_hate">싫어요 : <span>${comment.chate}</span></a></span>
 		 		</p>
 		 		<p>${comment.content }</p>
-		 		<c:if test="">
-		 			<a href="./boardCommentDelete.do?cno=${comment.cno} }">댓글 삭제</a>
+		 		<c:if test="${comment.id == sessionScope.user.id }">
+		 			<a href="./boardCommentDelete.do?cno=${comment.cno}">댓글 삭제</a>
 		 		</c:if>
 		 	</div>
 			<hr>		 
