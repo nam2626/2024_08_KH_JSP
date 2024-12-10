@@ -109,7 +109,7 @@
 		 		</p>
 		 		<p>${comment.content }</p>
 		 		<c:if test="${comment.id == sessionScope.user.id }">
-		 			<a href="./boardCommentDelete.do?cno=${comment.cno}">댓글 삭제</a>
+		 			<a href="./boardCommentDelete.do?cno=${comment.cno}&bno=${comment.bno}">댓글 삭제</a>
 		 		</c:if>
 		 	</div>
 			<hr>		 

@@ -37,6 +37,9 @@
  	<delete id="deleteBoard">
  		delete from board where bno = #{bno}
  	</delete>
+ 	<delete id="deleteBoardComment">
+ 		delete from board_comment where cno = #{cno}
+ 	</delete>
 </mapper>
 
 

@@ -69,6 +69,13 @@ public class BoardService {
 		} 
 	}
 
+	public int deleteBoardComment(int cno) {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.deleteBoardComment(cno);
+		}
+	}
+
 	
 	
 	
