@@ -37,6 +37,9 @@ public class HandlerMapping {
 		case "commentWrite":
 			controller = new BoardCommentInsertController();
 			break;
+		case "boardDelete":
+			controller = new BoardDeleteController();
+			break;
 		}
 		
 		return controller;

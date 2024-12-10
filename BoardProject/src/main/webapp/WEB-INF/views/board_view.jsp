@@ -76,7 +76,16 @@
         </table>
         <div class="actions">
             <a href="./boardMain.do" class="btn">목록으로</a>
-           	
+           	<!-- 
+           		게시글 삭제, 수정버튼 출력
+           		./boardUpdateView.do?bno=글번호
+           		./boardDelete.do?bno=글번호
+           		게시글 작성자와 로그인한 사람이 동일할때만 삭제/수정 출력
+           	 -->
+           	 <c:if test="${board.id == sessionScope.user.id }">
+	           	 <a href="./boardDelete.do?bno=${board.bno}" class="btn edit-btn">게시글 삭제</a>
+	           	 <a href="./boardUpdateView.do?bno=${board.bno}" class="btn delete-btn">게시글 수정</a>
+           	 </c:if>
         </div>
         <hr>
 		<!-- 
