@@ -28,6 +28,15 @@
 		
 		file_area.ondrop = (e) => {
 			e.preventDefault();
+			const data = e.dataTransfer;
+			console.log(data);
+			console.log(data.files);
+			//파일 태그에 드래그한 파일 정보를 연결
+			file.files = data.files;
+			let file_list_view = document.querySelector('.file_list_view');
+			for(let i=0;i<data.files.length;i++)
+				file_list_view.innerHTML += `${data.files[i].name}<br>`;
+			}
 		}
 		
 		file_area.ondragover = (e) => {
