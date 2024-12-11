@@ -34,9 +34,12 @@
 			//파일 태그에 드래그한 파일 정보를 연결
 			file.files = data.files;
 			let file_list_view = document.querySelector('.file_list_view');
-			for(let i=0;i<data.files.length;i++)
-				file_list_view.innerHTML += `${data.files[i].name}<br>`;
+			for(let i=0;i<data.files.length;i++){
+				file_list_view.innerHTML += `\${data.files[i].name}<br>`;
 			}
+
+			e.target.classList.remove('active');
+
 		}
 		
 		file_area.ondragover = (e) => {
