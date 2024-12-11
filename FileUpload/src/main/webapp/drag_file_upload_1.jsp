@@ -17,7 +17,35 @@
 	#file{
 		display:none;
 	}
+	.active{
+		box-shadow: 0px 0px 3px 5px red;
+	}
 </style>
+<script>
+	window.onload = () => {
+		let file_area = document.querySelector('.file_drop_area');
+		let file = document.querySelector('#file');
+		
+		file_area.ondrop = (e) => {
+			e.preventDefault();
+		}
+		
+		file_area.ondragover = (e) => {
+			e.preventDefault();
+		}
+		
+		file_area.ondragenter = (e) => {
+			e.target.classList.add('active');
+			e.preventDefault();
+		}
+		
+		file_area.ondragleave = (e) => {
+			e.target.classList.remove('active');
+			e.preventDefault();
+		}
+		
+	}
+</script>
 </head>
 <body>
 	<form action="./fileUpload.do" enctype="multipart/form-data" method="post">
