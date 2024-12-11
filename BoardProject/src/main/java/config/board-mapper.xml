@@ -19,7 +19,7 @@
 	</select>
 	<insert id="insertBoard" parameterType="dto.BoardDTO">
 		insert into board(bno, title, content, id)
-		values(seq_board_bno.nextval, #{title},#{content},#{id})
+		values(seq_board_bno.nextval, #{title},#{content,jdbcType=CLOB},#{id})
 	</insert>
 	<update id="updateBoard">
 		update board set title=#{title}, content=#{content}
