@@ -40,7 +40,6 @@ public class FileUploadServlet extends HttpServlet {
 		}		
 		
 		Iterator<Part> it = request.getParts().iterator();
-		System.out.println(request.getParameter("txt"));
 		//업로드할 파일 정보를 읽는 부분
 		while(it.hasNext()) {
 			Part part = it.next();
@@ -51,6 +50,9 @@ public class FileUploadServlet extends HttpServlet {
 				System.out.println(part.getSize());
 				//파일쓰기
 				part.write(root.getAbsolutePath()+"\\"+part.getSubmittedFileName());
+			}else {
+				//받은 내용이 파일아닐때 네임속성값과 파라미터값을 꺼내게끔 처리
+				
 			}
 		}
 		
