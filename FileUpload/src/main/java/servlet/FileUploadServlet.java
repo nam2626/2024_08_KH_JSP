@@ -52,7 +52,7 @@ public class FileUploadServlet extends HttpServlet {
 				part.write(root.getAbsolutePath()+"\\"+part.getSubmittedFileName());
 			}else {
 				//받은 내용이 파일아닐때 네임속성값과 파라미터값을 꺼내게끔 처리
-				
+				System.out.println(part.getName() + " / " + request.getParameter(part.getName()));
 			}
 		}
 		
