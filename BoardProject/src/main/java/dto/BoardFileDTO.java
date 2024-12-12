@@ -1,10 +1,16 @@
 package dto;
 
+import java.io.File;
+
 public class BoardFileDTO {
 	private int fno;
 	private int bno;
 	private String fpath;
 
+	public String getFileName() {
+		return new File(fpath).getName();
+	}
+	
 	public int getFno() {
 		return fno;
 	}

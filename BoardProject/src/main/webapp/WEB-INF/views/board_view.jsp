@@ -61,6 +61,14 @@
 					<a href="#" id="btn_hate">싫어요 : <span id="hate_count">${board.bhate }</span> </a>
 				</td>
 			</tr>
+			<tr>
+				<td colspan="2">
+					<h2>첨부파일 목록</h2>
+					<c:forEach var="file" items="${fileList }">
+						<a href="./fileDown.do?fno=${file.fno }">${file.fileName }</a><br>
+					</c:forEach>
+				</td>
+			</tr>
 			 <tr>
 			 	<td colspan="2">
 			 		<!-- 댓글 입력 폼 -->
