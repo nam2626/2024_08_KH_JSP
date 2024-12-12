@@ -17,9 +17,16 @@
 	<select id="getBoardList" resultMap="board">
 		select * from board_view
 	</select>
+	<select id="selectBoardNo" resultType="int">
+		select seq_board_bno.nextval from dual
+	</select>
 	<insert id="insertBoard" parameterType="dto.BoardDTO">
 		insert into board(bno, title, content, id)
-		values(seq_board_bno.nextval, #{title},#{content,jdbcType=CLOB},#{id})
+		values(#{bno}, #{title},#{content,jdbcType=CLOB},#{id})
+	</insert>
+	<insert id="insertBoardFile" parameterType="dto.BoardFileDTO">
+		insert into board_file(fno,bno,fpath)
+		values(SEQ_BOARD_FILE_FNO.nextval, #{bno}, #{fpath})
 	</insert>
 	<update id="updateBoard">
 		update board set title=#{title}, content=#{content}

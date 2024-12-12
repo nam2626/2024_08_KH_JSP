@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import config.DBManager;
 import dto.BoardCommentDTO;
 import dto.BoardDTO;
+import dto.BoardFileDTO;
 import mapper.BoardMapper;
 
 public class BoardService {
@@ -27,10 +28,17 @@ public class BoardService {
 		}
 	}
 
-	public int insertBoard(BoardDTO dto) {
+	public int insertBoard(BoardDTO dto, List<BoardFileDTO> fList) {
 		try(SqlSession session = DBManager.getInstance().getSession()){
 			BoardMapper mapper = session.getMapper(BoardMapper.class);
-			return mapper.insertBoard(dto);
+			int bno = mapper.selectBoardNo();
+			dto.setBno(bno);
+			int count = mapper.insertBoard(dto);
+			fList.forEach(item -> {
+				item.setBno(bno);
+				mapper.insertBoardFile(item);
+			});
+			return count;
 		}
 	}
 

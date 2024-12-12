@@ -2,14 +2,18 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import dto.BoardDTO;
+import dto.BoardFileDTO;
 import dto.BoardMemberDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
+import oracle.net.aso.f;
 import service.BoardService;
 import view.ModelAndView;
 
@@ -37,18 +41,26 @@ public class BoardWriteController implements Controller {
 		}		
 		
 		Iterator<Part> it = request.getParts().iterator();
+		List<BoardFileDTO> fileList = new ArrayList<BoardFileDTO>();
 		//업로드할 파일 정보를 읽는 부분
 		while(it.hasNext()) {
 			Part part = it.next();
 			if(part.getSubmittedFileName() != null && !part.getSubmittedFileName().isEmpty()) {
+				//파일 쓰기
 				part.write(root.getAbsolutePath()+"\\"+part.getSubmittedFileName());
+				//BoardFileDTO 만들어서 리스트 추가
+				//게시글번호, 파일 경로 가지고서 BoardFileDTO 생성
+				//리스트에다가 추가
+				BoardFileDTO fdto = new BoardFileDTO();
+				fdto.setFpath(root.getAbsolutePath()+"\\"+part.getSubmittedFileName());
+				fileList.add(fdto);
 			}
 		}
 		
 		//게시글 등록 
 		BoardDTO dto = new BoardDTO();
 		dto.setId(id);	dto.setTitle(title);	dto.setContent(content);
-		int count = BoardService.getInstance().insertBoard(dto);
+		int count = BoardService.getInstance().insertBoard(dto,fileList);
 		System.out.println("게시글 등록 결과 : " + count);
 		//main.jsp로 이동(./boardMain.do)
 		ModelAndView view = new ModelAndView();

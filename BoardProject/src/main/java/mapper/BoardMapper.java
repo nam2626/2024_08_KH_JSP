@@ -4,6 +4,7 @@ import java.util.List;
 
 import dto.BoardCommentDTO;
 import dto.BoardDTO;
+import dto.BoardFileDTO;
 
 public interface BoardMapper {
 	//페이지별 게시글 목록 조회	
@@ -17,6 +18,8 @@ public interface BoardMapper {
 	int deleteBoard(int bno);
 	int deleteBoardComment(int cno);
 	int updateBoard(BoardDTO dto);
+	int selectBoardNo();
+	int insertBoardFile(BoardFileDTO item);
 
 }
 
