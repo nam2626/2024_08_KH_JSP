@@ -6,6 +6,7 @@ import java.util.List;
 
 import dto.BoardCommentDTO;
 import dto.BoardDTO;
+import dto.BoardFileDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -37,12 +38,13 @@ public class BoardViewController implements Controller {
 		//해당 게시글의 댓글 목록 조회
 		List<BoardCommentDTO> commentList = BoardService.getInstance().getCommentList(bno);
 		//해당 게시글의 첨부파일 목록 조회
-		
+		List<BoardFileDTO> fileList = BoardService.getInstance().getBoardFileList(bno);
 		//페이지 이동
 		ModelAndView view = new ModelAndView();
 		view.setPath("board_view.jsp");
 		view.addObject("board", dto);
 		view.addObject("commentList", commentList);
+		view.addObject("fileList", fileList);
 		return view;
 	}
 

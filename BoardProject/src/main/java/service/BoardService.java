@@ -91,6 +91,13 @@ public class BoardService {
 		} 
 	}
 
+	public List<BoardFileDTO> getBoardFileList(int bno) {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.getBoardFileList(bno);
+		}
+	}
+
 	
 	
 	
