@@ -49,6 +49,9 @@ public class HandlerMapping {
 		case "boardUpdate":
 			controller = new BoardUpdateController();
 			break;
+		case "fileDown":
+			controller = new FileDownController();
+			break;
 		}
 		
 		return controller;

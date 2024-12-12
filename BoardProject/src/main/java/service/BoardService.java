@@ -98,6 +98,13 @@ public class BoardService {
 		}
 	}
 
+	public String selectFilePath(int fno) {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.selectFilePath(fno);
+		}
+	}
+
 	
 	
 	
