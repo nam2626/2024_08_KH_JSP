@@ -1,6 +1,9 @@
 package service;
 
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -102,6 +105,57 @@ public class BoardService {
 		try(SqlSession session = DBManager.getInstance().getSession()){
 			BoardMapper mapper = session.getMapper(BoardMapper.class);
 			return mapper.selectFilePath(fno);
+		}
+	}
+
+	public int insertBoardLike(int bno, String id) {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("bno", bno);
+			map.put("id", id);
+			return mapper.insertBoardLike(map);
+		}
+	}
+	public int deleteBoardLike(int bno, String id) {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("bno", bno);
+			map.put("id", id);
+			return mapper.deleteBoardLike(map);
+		}
+	}
+
+	public int getBoardLike(int bno) {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.getBoardLike(bno);
+		}
+	}
+	public int getBoardHate(int bno) {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.getBoardHate(bno);
+		}
+	}
+
+	public int insertBoardHate(int bno, String id) {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("bno", bno);
+			map.put("id", id);
+			return mapper.insertBoardHate(map);
+		}
+	}
+	public int deleteBoardHate(int bno, String id) {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("bno", bno);
+			map.put("id", id);
+			return mapper.deleteBoardHate(map);
 		}
 	}
 

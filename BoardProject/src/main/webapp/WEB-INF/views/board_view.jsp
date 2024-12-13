@@ -8,9 +8,42 @@
     <link rel="stylesheet" type="text/css" href="css/board_view.css">
     <script>
 		window.onload = () => {
-			//좋아요 링크 클릭 -> 경고창 띄우기
+			//좋아요/싫어요 링크 클릭 -> 경고창 띄우기(글번호 포함)
+			document.querySelectorAll('#btn_like, #btn_hate').forEach(item => {
+				item.onclick = (e) => {
+					const bno = '${board.bno}';
+					let baseUrl = item.id == 'btn_like' ? './boardLike.do' : './boardHate.do';
+					baseUrl += '?bno='+bno;
+					console.log(baseUrl);
+					fetch(baseUrl).then(response => response.json())
+					.then(result => {
+						//좋아요, 싫어요 결과 출력
+						//개수 최신
+						alert(result.msg);
+						console.log(result);
+						document.querySelector('#like_count').innerText = result.blike;
+						document.querySelector('#hate_count').innerText = result.bhate;
+					
+					})
+					
+				}
+			})
 			
-			//댓글 좋아요
+			//댓글 좋아요/싫어요 링크 클릭 -> 경고창 띄우기(댓글 번호 포함)
+			document.querySelectorAll('.btn_comment_like, .btn_comment_hate').forEach(item => {
+				item.onclick = (e) => {
+					const cno = e.target.parentNode.parentNode.querySelector('input').value;
+					let baseUrl = item.className == 'btn_comment_like' ? 
+								'./boardCommentLike.do' : './boardCommentHate.do';
+					baseUrl += '?cno='+cno;
+					console.log(baseUrl);
+					fetch(baseUrl).then(response => response.json())
+					.then(result => {
+						//좋아요, 싫어요 결과 출력
+						//개수 최신
+					})
+				}
+			})
 		
 		}
 		
@@ -110,10 +143,10 @@
 		 			<input type="hidden" name="cno" value="${comment.cno }">
 		 			<span>${comment.id }</span>
 		 			<span>작성일 ${comment.cdate}</span>
-		 			<span><a href="" class="btn_comment_like">
+		 			<span><a href="#" class="btn_comment_like">
 		 				좋아요 : <span>${comment.clike }</span>
 		 				</a></span>
-		 			<span><a href="" class="btn_comment_hate">싫어요 : <span>${comment.chate}</span></a></span>
+		 			<span><a href="#" class="btn_comment_hate">싫어요 : <span>${comment.chate}</span></a></span>
 		 		</p>
 		 		<p>${comment.content }</p>
 		 		<c:if test="${comment.id == sessionScope.user.id }">

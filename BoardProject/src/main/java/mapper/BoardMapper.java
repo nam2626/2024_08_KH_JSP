@@ -1,6 +1,7 @@
 package mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import dto.BoardCommentDTO;
 import dto.BoardDTO;
@@ -22,6 +23,12 @@ public interface BoardMapper {
 	int insertBoardFile(BoardFileDTO item);
 	List<BoardFileDTO> getBoardFileList(int bno);
 	String selectFilePath(int fno);
+	int insertBoardLike(Map<String, Object> map);
+	int deleteBoardLike(Map<String, Object> map);
+	int insertBoardHate(Map<String, Object> map);
+	int deleteBoardHate(Map<String, Object> map);
+	int getBoardLike(int bno);
+	int getBoardHate(int bno);
 
 }
 
