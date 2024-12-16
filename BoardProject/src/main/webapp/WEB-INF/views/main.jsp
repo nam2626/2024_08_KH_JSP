@@ -44,7 +44,26 @@
                 <tr>
                     <td colspan="7">
                         <div class="pagination">
-                          ${pagging.toString() }
+                          <%-- ${pagging.toString() } --%>
+                          <!-- 
+							페이징 결과 출력
+								PaggingVO에 있는 getStartPageOfPageGroup,
+								getEndPageOfPageGroup 메서드를 이용해서
+								jstl의 forEach를 이용해서 게시판 페이지 번호를 출력
+			
+								<a href="./boardMain.do?pageNo=번호">번호</a>	
+						  -->
+						  <c:forEach var="i" begin="${pagging.startPageOfPageGroup }" end="${pagging.endPageOfPageGroup }">
+						  	<c:choose>
+						  		<c:when test="${pagging.currentPage != i }">
+						  			<a href="./boardMain.do?pageNo=${i }">${i }</a>
+						  		</c:when>
+						  		<c:otherwise>
+						  			<a class="current">${i }</a>
+						  		</c:otherwise>
+						  	</c:choose>
+						  		
+						  </c:forEach>
                         </div>
                     </td>
                 </tr>
