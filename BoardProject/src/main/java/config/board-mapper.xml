@@ -80,6 +80,24 @@
  	<select id="getBoardHate" parameterType="int" resultType="int">
  		select count(*) from board_content_hate where bno = #{bno}
  	</select>
+ 	
+ 	<insert id="insertBoardCommentLike">
+ 		insert into board_comment_like(id,cno)
+ 		values(#{id},#{cno})
+ 	</insert>
+ 	<delete id="deleteBoardCommentLike">
+ 		delete from board_comment_like
+ 		where id like #{id} and cno = #{cno}
+ 	</delete>
+ 	<insert id="insertBoardCommentHate">
+ 		insert into board_comment_hate(id,cno)
+ 		values(#{id},#{cno})
+ 	</insert>
+ 	<delete id="deleteBoardCommentHate">
+ 		delete from board_comment_hate
+ 		where id like #{id} and cno = #{cno}
+ 	</delete>
+ 	
 </mapper>
 
 
