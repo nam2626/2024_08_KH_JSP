@@ -14,8 +14,13 @@
 		<result column="content" property="content"/>
 		<result column="nickname" property="nickName"/>
 	</resultMap>
-	<select id="getBoardList" resultMap="board">
-		select * from board_view
+	<select id="getBoardList" parameterType="map" resultMap="board">
+		SELECT * FROM 
+		(SELECT 
+			CEIL(ROW_NUMBER() OVER(ORDER BY BNO DESC) / #{pageContentEa}) AS PAGE,
+			BV.*
+		 FROM BOARD_VIEW BV)
+		WHERE PAGE = #{pageNo}
 	</select>
 	<select id="selectBoardNo" resultType="int">
 		select seq_board_bno.nextval from dual

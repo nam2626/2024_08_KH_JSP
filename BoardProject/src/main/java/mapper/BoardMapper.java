@@ -9,7 +9,7 @@ import dto.BoardFileDTO;
 
 public interface BoardMapper {
 	//페이지별 게시글 목록 조회	
-	List<BoardDTO> getBoardList();
+	List<BoardDTO> getBoardList(Map<String, Object> map);
 	//게시글 등록
 	int insertBoard(BoardDTO dto);
 	BoardDTO selectBoard(int bno);

@@ -24,10 +24,14 @@ public class BoardService {
 		return instance;
 	}
 
-	public List<BoardDTO> getBoardList() {
+	public List<BoardDTO> getBoardList(int pageNo, int pageContentEa) {
 		try(SqlSession session = DBManager.getInstance().getSession()){
 			BoardMapper mapper = session.getMapper(BoardMapper.class);
-			return mapper.getBoardList();
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("pageNo", pageNo);
+			map.put("pageContentEa", pageContentEa);
+			
+			return mapper.getBoardList(map);
 		}
 	}
 
