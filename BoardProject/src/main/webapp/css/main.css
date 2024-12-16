@@ -90,3 +90,47 @@
     transform: translateY(0);
 }
 
+/* 페이징 처리 CSS  */
+.pagination {
+    display: flex; /* 가로로 정렬 */
+    justify-content: center; /* 가운데 정렬 */
+    align-items: center;
+    gap: 8px; /* 항목 간격 */
+    margin: 20px 0; /* 위아래 여백 */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #007bff; /* 기본 링크 색상 */
+    border: 1px solid #ddd; /* 테두리 */
+    border-radius: 4px; /* 모서리 둥글게 */
+    background-color: #f8f9fa; /* 배경 색상 */
+    transition: all 0.3s ease; /* 애니메이션 */
+}
+
+.pagination a:hover {
+    background-color: #007bff; /* 배경색 변경 */
+    color: #fff; /* 글자색 변경 */
+    border-color: #007bff; /* 테두리색 변경 */
+}
+
+.pagination a.current {
+    color: #fff; /* 현재 페이지 글자색 */
+    background-color: #007bff; /* 현재 페이지 배경색 */
+    border-color: #007bff; /* 현재 페이지 테두리 */
+    cursor: default; /* 클릭 불가능 */
+    pointer-events: none; /* 클릭 차단 */
+}
+
+.pagination a:disabled {
+    color: #ccc; /* 비활성화된 색상 */
+    border-color: #ddd; /* 테두리 유지 */
+    background-color: #f8f9fa; /* 기본 배경색 */
+    cursor: not-allowed; /* 클릭 불가 표시 */
+    pointer-events: none; /* 클릭 차단 */
+}
+
