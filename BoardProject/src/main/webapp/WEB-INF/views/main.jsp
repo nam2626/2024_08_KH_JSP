@@ -44,7 +44,13 @@
                 <tr>
                     <td colspan="7">
                         <div class="pagination">
-                          <%-- ${pagging.toString() } --%>
+                          	<!-- 
+								이전 페이지 그룹으로 이동 - 이전 페이지 그룹이 있을때만
+								 		◀ 를 클릭시 이전 그룹의 마지막 페이지로 이동
+							-->
+                          	<c:if test="${pagging.priviousPageGroup }">
+                          		<a href="./boardMain.do?page=${pagging.startPageOfPageGroup - 1 }">◀</a>
+                          	</c:if>
                           <!-- 
 							페이징 결과 출력
 								PaggingVO에 있는 getStartPageOfPageGroup,
@@ -56,14 +62,29 @@
 						  <c:forEach var="i" begin="${pagging.startPageOfPageGroup }" end="${pagging.endPageOfPageGroup }">
 						  	<c:choose>
 						  		<c:when test="${pagging.currentPage != i }">
-						  			<a href="./boardMain.do?pageNo=${i }">${i }</a>
+						  			<a href="./boardMain.do?page=${i }">${i }</a>
 						  		</c:when>
 						  		<c:otherwise>
 						  			<a class="current">${i }</a>
 						  		</c:otherwise>
 						  	</c:choose>
-						  		
-						  </c:forEach>
+						  	</c:forEach>
+						  	<!--
+								다음 페이지 그룹으로 이동 
+								다음 페이지 그룹이 있을때만 표시
+								▶ 를 클릭시 다음 그룹의 첫번째 페이지로 이동
+								마지막 페이지 그룹이면 해당 링크가 나오면 안됨 
+								
+								1번째 페이지 그룹 1 2 3 4
+								2번째 페이지 그룹 5 6 7 8
+								5번 페이지로 이동
+								
+								isNextPageGroup getEndPageOfPageGroup
+							 -->
+							 <c:if test="${pagging.nextPageGroup }">
+							 	<a href="./boardMain.do?page=${pagging.endPageOfPageGroup + 1 }">▶</a>
+							 </c:if>	
+						  
                         </div>
                     </td>
                 </tr>
