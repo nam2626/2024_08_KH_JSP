@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import service.BoardService;
 import view.ModelAndView;
+import vo.PaggingVO;
 
 public class BoardMainController implements Controller {
 
@@ -22,13 +23,16 @@ public class BoardMainController implements Controller {
 		int pageContentEa = (request.getParameter("pageContentEa") == null ? 
 				30 : Integer.parseInt(request.getParameter("pageContentEa")));
 		
+		//전체 게시글 개수 조회
+		int count = BoardService.getInstance().selectBoardTotalCount();
 		//페이지 번호를 보내서 해당 페이지의 게시글 목록만 조회하게끔 SQL문과 Mapper 수정
 		List<BoardDTO> list = BoardService.getInstance().getBoardList(pageNo, pageContentEa);
-		
+		PaggingVO pagging = new PaggingVO(count, pageNo, pageContentEa);
 		//ModelAndView에 데이터를 추가
 		//이동페이지는 main.jsp로 이동
 		ModelAndView view = new ModelAndView();
 		view.addObject("boardList", list);
+		view.addObject("pagging", pagging);
 		view.setPath("main.jsp");
 		
 		return view;

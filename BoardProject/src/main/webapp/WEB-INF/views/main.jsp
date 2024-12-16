@@ -44,7 +44,7 @@
                 <tr>
                     <td colspan="7">
                         <div class="pagination">
-                          
+                          ${pagging.toString() }
                         </div>
                     </td>
                 </tr>

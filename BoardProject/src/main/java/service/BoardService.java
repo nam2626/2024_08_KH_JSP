@@ -202,6 +202,13 @@ public class BoardService {
 		
 	}
 
+	public int selectBoardTotalCount() {
+		try(SqlSession session = DBManager.getInstance().getSession()){
+			BoardMapper mapper = session.getMapper(BoardMapper.class);
+			return mapper.selectBoardTotalCount();
+		}
+	}
+
 	
 	
 	

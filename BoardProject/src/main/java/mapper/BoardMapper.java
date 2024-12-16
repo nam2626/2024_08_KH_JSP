@@ -33,6 +33,7 @@ public interface BoardMapper {
 	int insertBoardCommentLike(Map<String, Object> map);
 	int deleteBoardCommentHate(Map<String, Object> map);
 	int insertBoardCommentHate(Map<String, Object> map);
+	int selectBoardTotalCount();
 
 }
 

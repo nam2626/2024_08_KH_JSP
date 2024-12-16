@@ -22,6 +22,9 @@
 		 FROM BOARD_VIEW BV)
 		WHERE PAGE = #{pageNo}
 	</select>
+	<select id="selectBoardTotalCount" resultType="int">
+		select count(*) from board_view
+	</select>
 	<select id="selectBoardNo" resultType="int">
 		select seq_board_bno.nextval from dual
 	</select>
